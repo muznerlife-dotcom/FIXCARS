@@ -17,7 +17,12 @@
       <div class="nav-brand">
         <h2><%= stationName %></h2>
       </div>
-      <ul class="nav-menu">
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu" id="primary-navigation">
         <li><a href="#home" class="nav-link">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#services" class="nav-link">Services</a></li>
@@ -214,7 +219,7 @@
         <div class="footer-text">
           <p>&copy; 2026 <%= stationName %>. All rights reserved.</p>
           <p>Built with care for your automotive needs</p>
-          <p>BY Yaro</p>
+  
         </div>
 
       </div>

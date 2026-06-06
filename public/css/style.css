@@ -19,6 +19,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -58,10 +59,34 @@ body {
   font-weight: 600;
 }
 
+.nav-brand {
+  min-width: 0;
+}
+
 .nav-menu {
   display: flex;
   list-style: none;
   gap: 2rem;
+}
+
+.nav-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0.25rem;
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 1002;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text-light);
+  margin: 5px 0;
+  transition: var(--transition);
 }
 
 .nav-link {
@@ -496,9 +521,54 @@ section {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .navbar .container {
+    position: relative;
+  }
+
+  .nav-brand {
+    flex: 1;
+    min-width: 0;
+    margin-right: 0.75rem;
+  }
+
+  .nav-brand h2 {
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
   .nav-menu {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    right: 0;
+    width: min(320px, calc(100vw - 40px));
+    background: rgba(44, 62, 80, 0.98);
+    border-radius: 10px;
+    padding: 0.75rem;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    pointer-events: none;
+  }
+
+  .nav-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
   }
 
   .hero h1 {
