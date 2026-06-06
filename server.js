@@ -18,8 +18,8 @@ app.get('/', (req, res) => {
     tagline: 'Your Trusted Auto Care Partner',
     phone: '+1 720-215-6718',
     email: 'cardepotmechanic@gmail.com',
-    address: '1950 W Union Ave, Englewood, CO 80110 A11',
-    googleMapsLink: 'https://www.google.com/maps/search/?api=1&query=1950+W+Union+Ave+Englewood+CO+80110+A11',
+    address: '1950 W Union Ave A11, Englewood, CO 80110',
+    googleMapsLink: 'https://www.google.com/maps/dir/?api=1&destination=39.6318955,-105.0119894&travelmode=driving',
     hours: {
       weekdays: 'Monday - Friday: 9:00 AM - 6:00 PM',
       saturday: 'Saturday: 10:00 AM - 5:00 PM',
