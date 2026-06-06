@@ -342,6 +342,19 @@ section {
   margin-bottom: 1rem;
 }
 
+.service-icon-image-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.service-icon-image {
+  width: 68px;
+  height: 68px;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 .service-card h3 {
   font-size: 1.5rem;
   color: var(--secondary-color);
