@@ -342,17 +342,10 @@ section {
   margin-bottom: 1rem;
 }
 
-.service-icon-image-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.service-icon-image {
+.service-icon-svg {
   width: 68px;
   height: 68px;
-  border-radius: 14px;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: var(--secondary-color);
 }
 
 .service-card h3 {
