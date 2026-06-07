@@ -3,8 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="<%= stationName %> - Professional Auto Repair Services">
-  <title><%= stationName %></title>
+
+  <!-- SEO Meta Tags -->
+  <title>Car Depot Auto Mechanic Service | Englewood, CO</title>
+  <meta name="description" content="Car Depot Auto Mechanic Service in Englewood, CO — expert engine repair, oil changes, brake service, suspension, and diagnostics for all makes and models. Trusted local auto shop near Denver.">
+  <meta name="keywords" content="auto repair Englewood CO, car mechanic near me, engine repair Denver, oil change Englewood, brake service Englewood CO, suspension repair, car diagnostics, Car Depot mechanic, auto shop near Denver, 4Runner repair Colorado">
+  <meta name="author" content="Car Depot Auto Mechanic Service">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://cardepotmechanic.com/">
+
+  <!-- Open Graph (Google, Facebook preview) -->
+  <meta property="og:title" content="Car Depot Auto Mechanic Service | Englewood, CO">
+  <meta property="og:description" content="Trusted auto repair shop in Englewood, CO. Engine repair, oil changes, brakes, suspension, and diagnostics. Serving Denver and surrounding areas.">
+  <meta property="og:url" content="https://cardepotmechanic.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1200&h=630&fit=crop">
+
+  <!-- Local Business Schema (helps Google Maps + Search) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "Car Depot Auto Mechanic Service",
+    "image": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800",
+    "url": "https://cardepotmechanic.com/",
+    "telephone": "+17202156718",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1950 W Union Ave A11",
+      "addressLocality": "Englewood",
+      "addressRegion": "CO",
+      "postalCode": "80110",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.6318955,
+      "longitude": -105.0119894
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "10:00", "closes": "17:00" }
+    ],
+    "priceRange": "$$",
+    "servesCuisine": null
+  }
+  </script>
   <link rel="stylesheet" href="/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,6 +85,9 @@
       <div class="hero-buttons">
         <a href="#contact" class="btn btn-primary">Get in Touch</a>
         <a href="#services" class="btn btn-secondary">Our Services</a>
+        <div class="hero-buttons-row">
+          <a href="tel:<%= phone.replace(/\s/g, '') %>" class="btn btn-call">📞 Call Us Now</a>
+        </div>
       </div>
     </div>
   </section>
@@ -99,10 +146,11 @@
         <div class="section-underline"></div>
       </div>
       <div class="services-grid">
-        <div class="service-card">
+        <div class="service-card service-card-clickable" id="engine-repair-card" role="button" tabindex="0" aria-haspopup="dialog">
           <div class="service-icon">🔧</div>
           <h3>Engine Repair</h3>
           <p>Complete engine diagnostics, repair, and rebuilding services for all makes and models.</p>
+          <span class="service-card-cta">Learn more →</span>
         </div>
         <div class="service-card">
           <div class="service-icon">🛞</div>
@@ -142,23 +190,47 @@
       </div>
       <div class="gallery-grid">
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1625047509248-ec889cbff17f?q=80&w=2064&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Auto repair shop">
+          <img src="/images/gallery/photo-1.jpg" alt="Car Depot gallery photo 1">
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=800&h=600&fit=crop" alt="Mechanic working">
+          <img src="/images/gallery/photo-2.jpg" alt="Car Depot gallery photo 2">
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=800&h=600&fit=crop" alt="Car engine">
+          <img src="/images/gallery/photo-3.jpg" alt="Car Depot gallery photo 3">
         </div>
         <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&h=600&fit=crop" alt="Tools and equipment">
+          <img src="/images/gallery/photo-4.jpg" alt="Car Depot gallery photo 4">
         </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=800&h=600&fit=crop" alt="Car maintenance">
-        </div>
-        <div class="gallery-item">
-          <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&h=600&fit=crop" alt="Classic car">
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews" class="reviews">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Customers Say</h2>
+        <div class="section-underline"></div>
+      </div>
+      <div class="reviews-grid">
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Been coming here 4+ years. I only trust them with my 4Runner - no one else!"</p>
+          <p class="review-author">Yaro M.</p>
+          <p class="review-role">Customer since 2022</p>
+        </article>
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Honest pricing, fast turnaround, and always easy. Plus, tasty coffee while waiting! My go-to shop."</p>
+          <p class="review-author">Michael R.</p>
+          <p class="review-role">Customer</p>
+        </article>
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Trustworthy team, great communication. I would not take my car anywhere else."</p>
+          <p class="review-author">Sarah L.</p>
+          <p class="review-role">Customer</p>
+        </article>
       </div>
     </div>
   </section>
@@ -225,6 +297,34 @@
       </div>
     </div>
   </footer>
+
+  <!-- Engine Repair Modal -->
+  <div id="engine-modal" class="service-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Engine Repair">
+    <div class="service-modal-box">
+      <button class="service-modal-close" aria-label="Close">&times;</button>
+      <img class="service-modal-image" src="https://images.unsplash.com/photo-1666708399175-4096d8fcccd9?q=80&w=900&auto=format&fit=crop" alt="Engine repair at Car Depot">
+      <div class="service-modal-body">
+        <h2>Engine Repair &amp; Rebuilding</h2>
+        <p>At Car Depot Auto Mechanic Service, our ASE-trained technicians specialize in full-spectrum engine repair for all domestic and foreign makes and models. Whether your check-engine light just came on or you are dealing with major internal engine failure, we have the tools and expertise to diagnose and fix it fast.</p>
+        <h3>What We Do</h3>
+        <ul>
+          <li>Complete engine diagnostics and computer scanning</li>
+          <li>Engine rebuild and replacement</li>
+          <li>Head gasket and timing belt/chain repair</li>
+          <li>Cooling system, thermostat, and water pump service</li>
+          <li>Intake manifold, valve, and seal replacement</li>
+          <li>Pre-purchase engine inspections</li>
+        </ul>
+        <p>We use OEM and premium aftermarket parts to restore your engine's performance and reliability. Our shop is equipped with professional-grade diagnostic equipment — so we do not guess, we know.</p>
+        <p><strong>Serving the Englewood, CO area</strong> — if your engine needs attention, bring it in or give us a call and we will take care of the rest.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="gallery-lightbox" class="gallery-lightbox" aria-hidden="true">
+    <button id="gallery-lightbox-close" class="gallery-lightbox-close" aria-label="Close image">&times;</button>
+    <img id="gallery-lightbox-image" class="gallery-lightbox-image" src="" alt="Expanded gallery photo">
+  </div>
 
   <script src="/js/main.js"></script>
 </body>

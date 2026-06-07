@@ -81,7 +81,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all major elements
-document.querySelectorAll('.service-card, .gallery-item, .contact-item, .about-text, .about-image').forEach(el => {
+document.querySelectorAll('.service-card, .gallery-item, .review-card, .contact-item, .about-text, .about-image').forEach(el => {
   observer.observe(el);
 });
 
@@ -96,11 +96,64 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Gallery image click to open in new tab
-document.querySelectorAll('.gallery-item img').forEach(img => {
-  img.addEventListener('click', function() {
-    window.open(this.src, '_blank');
+// Engine Repair modal
+const engineModal = document.getElementById('engine-modal');
+const engineCard = document.getElementById('engine-repair-card');
+
+if (engineModal && engineCard) {
+  const openModal = () => {
+    engineModal.classList.add('open');
+    engineModal.setAttribute('aria-hidden', 'false');
+  };
+  const closeModal = () => {
+    engineModal.classList.remove('open');
+    engineModal.setAttribute('aria-hidden', 'true');
+  };
+
+  engineCard.addEventListener('click', openModal);
+  engineCard.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') openModal(); });
+
+  engineModal.querySelector('.service-modal-close').addEventListener('click', closeModal);
+  engineModal.addEventListener('click', (e) => { if (e.target === engineModal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && engineModal.classList.contains('open')) closeModal(); });
+}
+
+// Gallery image click to open in lightbox
+const lightbox = document.getElementById('gallery-lightbox');
+const lightboxImage = document.getElementById('gallery-lightbox-image');
+const lightboxClose = document.getElementById('gallery-lightbox-close');
+
+if (lightbox && lightboxImage && lightboxClose) {
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', function() {
+      const img = this.querySelector('img');
+      if (!img) return;
+
+      lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+    });
   });
-});
+
+  const closeLightbox = () => {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightboxImage.src = '';
+  };
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && lightbox.classList.contains('open')) {
+      closeLightbox();
+    }
+  });
+}
 
 console.log('🚗 AutoPro Mechanic Station - Website loaded successfully!');
